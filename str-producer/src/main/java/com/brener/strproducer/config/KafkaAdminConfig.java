@@ -16,15 +16,15 @@ public class KafkaAdminConfig {
 
     public final KafkaProperties properties;
 
-    @Bean
-    public KafkaAdmin kafkaAdmin() { // Configura o KafkaAdmin para comunicar com o Kafka Cluster
+    @Bean // Configura o KafkaAdmin para comunicar com o Kafka Cluster
+    public KafkaAdmin kafkaAdmin() {
         var configs = new HashMap<String, Object>();
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, properties.getBootstrapServers());
         return new KafkaAdmin(configs);
     }
 
-    @Bean
-    public KafkaAdmin.NewTopics topics() { // Cria o topic
+    @Bean // Cria o topic
+    public KafkaAdmin.NewTopics topics() {
         return new KafkaAdmin.NewTopics(
                 TopicBuilder.name("str-topic")
                         .partitions(2)
