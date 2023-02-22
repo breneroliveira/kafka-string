@@ -13,7 +13,6 @@ import java.lang.annotation.Target;
 @KafkaListener
 public @interface StrConsumerCustomListener {
 
-    // Define atributos de classes e os deixa como padrão
     @AliasFor(annotation = KafkaListener.class, attribute = "topics")
     String[] topics() default "str-topic";
 
